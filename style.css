@@ -2,8 +2,10 @@
 :root {
     --bg-color: #FDFBF7;
     --card-bg: #FFFFFF;
-    --primary-color: #C85A28; /* Terracota / Laranja do PDF */
+    --primary-color: #C85A28; /* Terracota do PDF */
     --primary-dark: #A3431A;
+    --whatsapp-green: #25D366;
+    --whatsapp-dark: #1EBE5A;
     --text-color: #2D2B2A;
     --text-muted: #66605C;
     --accent-light: #F7EDE2;
@@ -59,7 +61,7 @@ body {
 
 .nav-logo {
     font-family: var(--font-heading);
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
@@ -78,7 +80,7 @@ body {
 .nav-links a {
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     transition: color 0.3s;
 }
@@ -88,18 +90,20 @@ body {
 }
 
 .nav-btn {
-    background-color: var(--primary-color);
+    background-color: var(--whatsapp-green);
     color: white;
-    padding: 8px 18px;
+    padding: 10px 20px;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 13px;
-    transition: background 0.3s;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-    background-color: var(--primary-dark);
+    background-color: var(--whatsapp-dark);
+    transform: translateY(-2px);
 }
 
 /* HERO SECTION */
@@ -117,102 +121,133 @@ body {
 .badge {
     background-color: var(--accent-light);
     color: var(--primary-color);
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 800;
     display: inline-block;
     margin-bottom: 15px;
+    border: 1px solid rgba(200, 90, 40, 0.2);
 }
 
 .hero-text h1 {
     font-family: var(--font-heading);
     font-size: 42px;
-    line-height: 1.2;
+    line-height: 1.25;
     margin-bottom: 20px;
     color: var(--text-color);
 }
 
 .hero-text p {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--text-muted);
     margin-bottom: 30px;
 }
 
 .hero-btns {
     display: flex;
+    flex-direction: column;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .btn {
-    padding: 12px 24px;
+    padding: 16px 28px;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
+.btn-whatsapp-cta {
+    background-color: var(--whatsapp-green);
     color: white;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    font-size: 16px;
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-dark);
+.btn-whatsapp-cta:hover {
+    background-color: var(--whatsapp-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
 }
 
 .btn-secondary {
-    background-color: transparent;
-    border: 1px solid var(--border-color);
+    background-color: #FFFFFF;
+    border: 2px solid var(--border-color);
     color: var(--text-color);
 }
 
 .btn-secondary:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
     background-color: var(--accent-light);
 }
 
+/* SOCIAL PILLS */
 .social-pills {
     display: flex;
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.social-pills a {
-    color: var(--text-muted);
+.pill {
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     text-decoration: none;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
+    transition: all 0.3s;
 }
 
+.pill span {
+    color: var(--primary-color);
+}
+
+.pill:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* HERO IMAGE WRAPPER */
 .hero-img-wrapper {
     position: relative;
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    background: #e0d8ce;
-    min-height: 380px;
+    background: var(--accent-light);
+    min-height: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px solid #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 6px solid #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
 .hero-img {
     width: 100%;
     height: 100%;
+    max-height: 500px;
     object-fit: cover;
+    display: block;
 }
 
 .hero-tag {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background: rgba(255,255,255,0.9);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
+    background: rgba(255,255,255,0.95);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* SECTIONS COMMON */
@@ -228,13 +263,13 @@ body {
 
 .section-title h2 {
     font-family: var(--font-heading);
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 10px;
 }
 
 .section-title p {
     color: var(--text-muted);
-    font-size: 15px;
+    font-size: 16px;
 }
 
 /* SOBRE */
@@ -246,14 +281,15 @@ body {
 
 .sobre-box, .pilares-box {
     background: var(--card-bg);
-    padding: 30px;
-    border-radius: 16px;
+    padding: 35px;
+    border-radius: 20px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
 .sobre-box h3, .pilares-box h3 {
     font-family: var(--font-heading);
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
@@ -267,9 +303,9 @@ body {
 
 .pilar-item {
     background: var(--accent-light);
-    padding: 12px 18px;
-    border-radius: 10px;
-    font-weight: 600;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 700;
     font-size: 14px;
 }
 
@@ -282,23 +318,24 @@ body {
 
 .card {
     background: var(--card-bg);
-    padding: 25px;
-    border-radius: 16px;
+    padding: 30px 25px;
+    border-radius: 20px;
     border: 1px solid var(--border-color);
     transition: transform 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
 .card-icon {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 15px;
 }
 
 .card h3 {
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 10px;
 }
 
@@ -317,8 +354,8 @@ body {
 
 .stat-card {
     background: var(--card-bg);
-    padding: 25px;
-    border-radius: 16px;
+    padding: 30px 20px;
+    border-radius: 20px;
     text-align: center;
     border: 1px solid var(--border-color);
 }
@@ -326,7 +363,7 @@ body {
 .stat-number {
     display: block;
     font-family: var(--font-heading);
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 5px;
@@ -335,13 +372,13 @@ body {
 .stat-label {
     font-size: 13px;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .demo-box {
     background: var(--accent-light);
-    padding: 20px;
-    border-radius: 12px;
+    padding: 25px;
+    border-radius: 16px;
     text-align: center;
 }
 
@@ -354,15 +391,15 @@ body {
 
 .portfolio-card {
     background: var(--card-bg);
-    padding: 20px;
-    border-radius: 16px;
+    padding: 25px;
+    border-radius: 20px;
     border: 1px solid var(--border-color);
 }
 
 .portfolio-thumb {
     background: var(--accent-light);
-    padding: 30px 20px;
-    border-radius: 12px;
+    padding: 40px 20px;
+    border-radius: 14px;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -370,33 +407,34 @@ body {
 .tag-view {
     background: var(--primary-color);
     color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* PARCERIAS & CTA */
 .cta-box {
     background: #2D2B2A;
     color: white;
-    padding: 50px 30px;
-    border-radius: 24px;
+    padding: 60px 30px;
+    border-radius: 28px;
     text-align: center;
 }
 
 .cta-box h2 {
     font-family: var(--font-heading);
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 15px;
 }
 
 .cta-box p {
     color: #CCC6C0;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+    font-size: 16px;
 }
 
 .contact-methods {
@@ -404,41 +442,62 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .contact-btn {
-    padding: 14px 28px;
-    border-radius: 30px;
+    padding: 18px 32px;
+    border-radius: 40px;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 800;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.whatsapp {
-    background: #25D366;
+.whatsapp-highlight {
+    background: var(--whatsapp-green);
     color: white;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
-.email {
+.whatsapp-highlight:hover {
+    background: var(--whatsapp-dark);
+    transform: scale(1.05);
+}
+
+.email-highlight {
     background: var(--primary-color);
     color: white;
+    box-shadow: 0 8px 25px rgba(200, 90, 40, 0.4);
+}
+
+.email-highlight:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
 }
 
 .social-footer {
-    font-size: 13px;
+    font-size: 14px;
     color: #AAA39C;
 }
 
-.social-footer a {
-    color: white;
+.social-links-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-links-footer a {
+    color: #F7EDE2;
     text-decoration: none;
+    font-weight: 700;
 }
 
 footer {
     text-align: center;
     padding: 30px;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
@@ -446,5 +505,7 @@ footer {
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hero-grid, .sobre-grid { grid-template-columns: 1fr; }
-    .hero-text h1 { font-size: 30px; }
+    .hero-text h1 { font-size: 32px; }
+    .hero-btns { width: 100%; }
+    .btn { width: 100%; }
 }
