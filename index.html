@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larissa Pereira | Mídia Kit & Portfólio UGC</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F7F4EF;
+            --card-bg: #EFE8DC;
+            --white: #FFFFFF;
+            --accent-terracotta: #C86D3B;
+            --accent-dark: #8C4A26;
+            --text-main: #3D2B1F;
+            --text-muted: #6E5A4C;
+            --border-color: #E2D7C7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header com Foto de Perfil */
+        header {
+            background-color: var(--accent-terracotta);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(200, 109, 59, 0.15);
+        }
+
+        .profile-img-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            overflow: hidden;
+            background-color: #D3C4B4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        header p { font-size: 1.05rem; opacity: 0.95; }
+
+        .cta-header {
+            display: inline-block;
+            margin-top: 18px;
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--accent-dark);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin: 35px 0 20px 0;
+        }
+
+        /* Sobre */
+        .about-card {
+            background-color: var(--card-bg);
+            border-left: 5px solid var(--accent-terracotta);
+            padding: 22px;
+            border-radius: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--border-color);
+            background-color: #D3C4B4;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--accent-terracotta);
+        }
+
+        /* Galeria */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            height: 280px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            background-color: #D3C4B4;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(61, 43, 31, 0.85));
+            color: var(--white);
+            padding: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Formatos */
+        .grid-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .type-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .type-card h3 { color: var(--accent-terracotta); font-size: 1.15rem; margin-bottom: 6px; }
+        .type-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Métricas */
+        .grid-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .metric-card {
+            background-color: var(--accent-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 12px;
+        }
+
+        .metric-card .number { font-size: 1.8rem; font-weight: 700; display: block; }
+        .metric-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+
+        /* Demografia */
+        .demographics-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .demo-row { margin-bottom: 12px; }
+        .demo-row:last-child { margin-bottom: 0; }
+        .demo-info { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .bar-bg { width: 100%; background-color: var(--card-bg); height: 10px; border-radius: 5px; overflow: hidden; }
+        .bar-fill { background-color: var(--accent-terracotta); height: 100%; }
+
+        /* Contato */
+        .contact-section {
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 35px 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
+        .contact-section p { color: #D3C4B4; margin-bottom: 20px; font-size: 0.95rem; }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            width: 100%;
+            max-width: 260px;
+        }
+
+        .btn-whatsapp { background-color: #25D366; color: #FFFFFF; }
+        .btn-email { background-color: var(--accent-terracotta); color: #FFFFFF; }
+        .btn-social { background-color: rgba(255, 255, 255, 0.1); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.2); }
+
+        footer { text-align: center; padding: 20px 0 10px 0; color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .about-card { flex-direction: column; text-align: center; }
+            .about-img { width: 110px; height: 110px; }
+            header h1 { font-size: 2.1rem; }
+            .gallery-item { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <header>
+            <div class="profile-img-container">
+                <img src="foto-perfil.jpg" alt="Larissa Pereira">
+            </div>
+            <h1>Larissa Pereira</h1>
+            <p>Criadora de Conteúdo Digital & UGC | Lifestyle & LGBTQIAP+</p>
+            <a href="https://wa.me/5511933376842" target="_blank" class="cta-header">Falar no WhatsApp</a>
+        </header>
+
+        <div class="section-title">Quem Sou Eu</div>
+        <div class="about-card">
+            <img src="foto-sobre.jpg" alt="Lari" class="about-img">
+            <div class="about-text">
+                <h3>Oi! Eu sou a Lari :)</h3>
+                <p>Sou Larissa Cristina, criadora de conteúdo apaixonada por compartilhar experiências reais do meu cotidiano, momentos ao lado da Atena (minha pet) e vivências ligadas à comunidade LGBTQIAP+. Crio conteúdos naturais e espontâneos que conectam marcas diretamente com o público.</p>
+            </div>
+        </div>
+
+        <div class="section-title">Fotos & Estilo de Conteúdo</div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="foto1.jpg" alt="Skincare & Lifestyle">
+                <div class="gallery-overlay">Skincare & Estilo de Vida</div>
+            </div>
+            <div class="gallery-item">
+                <img src="foto2.jpg" alt="Momentos com a Atena">
+                <div class="gallery-overlay">Momentos com a Atena 🐾</div>
+            </div>
+            <div class="gallery-item">
+                <img src="foto3.jpg" alt="Unboxing & Reviews">
+                <div class="gallery-overlay">Unboxing & Reviews Reais</div>
+            </div>
+        </div>
+
+        <div class="section-title">Formatos de Conteúdo</div>
+        <div class="grid-types">
+            <div class="type-card">
+                <h3>Vídeo UGC</h3>
+                <p>A cara do produto no mundo real. Sem estúdio, sem artificialidade. O formato mais natural e orgânico possível.</p>
+            </div>
+            <div class="type-card">
+                <h3>Review Honesta</h3>
+                <p>Avaliação real de quem testa e usa o produto na prática, gerando alta credibilidade e confiança.</p>
+            </div>
+            <div class="type-card">
+                <h3>Rotina de Skincare / Lifestyle</h3>
+                <p>Conteúdo integrado ao dia a dia que gera alto engajamento, proximidade e retenção de público.</p>
+            </div>
+            <div class="type-card">
+                <h3>Unboxing Espontâneo</h3>
+                <p>Primeira impressão real e emoção genuína, como uma consumidora comum compartilhando uma descoberta.</p>
+            </div>
+        </div>
+
+        <div class="section-title">Métricas e Alcance (Últimos 30 Dias)</div>
+        <div class="grid-metrics">
+            <div class="metric-card">
+                <span class="number">20.9K</span>
+                <span class="label">Visualizações</span>
+            </div>
+            <div class="metric-card">
+                <span class="number">5.2K+</span>
+                <span class="label">Curtidas Totais</span>
+            </div>
+            <div class="metric-card">
+                <span class="number">907</span>
+                <span class="label">Interações</span>
+            </div>
+            <div class="metric-card">
+                <span class="number">71%</span>
+                <span class="label">Alcance Orgânico</span>
+            </div>
+        </div>
+
+        <div class="section-title">Público-Alvo (Faixas Etárias)</div>
+        <div class="demographics-card">
+            <div class="demo-row">
+                <div class="demo-info">
+                    <span>25 - 34 anos</span>
+                    <span>57,1%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 57.1%;"></div></div>
+            </div>
+            <div class="demo-row">
+                <div class="demo-info">
+                    <span>35 - 44 anos</span>
+                    <span>20,5%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 20.5%;"></div></div>
+            </div>
+            <div class="demo-row">
+                <div class="demo-info">
+                    <span>18 - 24 anos</span>
+                    <span>9,8%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 9.8%;"></div></div>
+            </div>
+            <div class="demo-row">
+                <div class="demo-info">
+                    <span>45 - 54 anos</span>
+                    <span>8,9%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 8.9%;"></div></div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Vamos trabalhar juntos?</h2>
+            <p>Entre em contato para montar algo que funcione de verdade para a sua marca.</p>
+            
+            <div class="btn-group">
+                <a href="https://wa.me/5511933376842" target="_blank" class="btn btn-whatsapp">
+                    📱 Chamar no WhatsApp
+                </a>
+                <a href="mailto:Larissacris745@gmail.com" class="btn btn-email">
+                    ✉️ Enviar E-mail
+                </a>
+                <a href="https://www.tiktok.com/@umataldelari_" target="_blank" class="btn btn-social">
+                    🎵 TikTok @umataldelari_
+                </a>
+                <a href="https://www.instagram.com/larissac.pereira" target="_blank" class="btn btn-social">
+                    📸 Instagram @larissac.pereira
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Larissa Pereira - Mídia Kit & Portfólio UGC</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
